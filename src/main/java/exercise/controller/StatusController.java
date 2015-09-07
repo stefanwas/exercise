@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * This is just a simple web method to check if the web-app is up and running.
+ * This is just a simple controller with a single method to check if the web-app is up and running.
  *
  * Quick test procedure:
  *
  * 1. mvn clean tomcat:run
- * 2. open http://localhost:8080/exercise/rest/status
+ * 2. GET http://localhost:8080/exercise/rest/status
  */
 @RestController
 @RequestMapping("/status")

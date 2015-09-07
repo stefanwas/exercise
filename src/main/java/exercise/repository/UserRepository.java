@@ -30,7 +30,6 @@ public class UserRepository {
         List<User> users = this.jdbcTemplate.query("select * from user where name = ?", userRowMapper, userName);
         return (users != null && !users.isEmpty()) ? users.get(0) : null;
     }
-
 }
 
 class UserRowMapper implements RowMapper<User> {

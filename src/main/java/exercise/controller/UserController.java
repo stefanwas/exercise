@@ -22,7 +22,7 @@ public class UserController {
         if (userValidator.isValidUser(user)) {
             response = saveUser(user);
         } else {
-            response = "FAILURE - invalid user data";
+            response = "FAILURE - invalid user name or password";
         }
         return response;
     }
