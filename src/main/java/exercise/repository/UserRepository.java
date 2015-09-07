@@ -18,7 +18,7 @@ public class UserRepository {
     @Resource
     private JdbcTemplate jdbcTemplate;
 
-    public void create(User user) {
+    public void save(User user) {
         this.jdbcTemplate.update("insert into user (name, password) values (?, ?)", user.getName(), user.getPassword());
     }
 

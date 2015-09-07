@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
 @Service
 public class UserValidator {
 
-    private final Predicate<String> minLength5 = createMinLengthPredicate(5);
-    private final Predicate<String> minLength8 = createMinLengthPredicate(8);
+    private final Predicate<String> hasMinLength5 = createMinLengthPredicate(5);
+    private final Predicate<String> hasMinLength8 = createMinLengthPredicate(8);
     private final Predicate<String> hasUppercase = Pattern.compile("[A-Z]").asPredicate();
     private final Predicate<String> hasLowercase = Pattern.compile("[a-z]").asPredicate();
     private final Predicate<String> hasNumber = Pattern.compile("\\d").asPredicate();
@@ -23,11 +23,11 @@ public class UserValidator {
     }
 
     private boolean hasValidName(String userName) {
-        return minLength5.test(userName) && isAlphaNumeric.test(userName);
+        return hasMinLength5.test(userName) && isAlphaNumeric.test(userName);
     }
 
     private boolean hasValidPassword(String password) {
-        List<Predicate<String>> predicates = Arrays.asList(minLength8, hasUppercase, hasLowercase, hasNumber);
+        List<Predicate<String>> predicates = Arrays.asList(hasMinLength8, hasUppercase, hasLowercase, hasNumber);
         return predicates.stream().allMatch(predicate -> predicate.test(password));
     }
 

@@ -1,6 +1,6 @@
-1. konfiguracja ws-spring (1-2h)
-2. repository (1-2h)
+1. konfiguracja ws-spring (1-2h) DONE
+2. repository (1-2h) DONE
 3. html page (15'-2h)
-4. validation (30')
+4. validation (30') DONE
 5. tests 1h
 6. exception handling

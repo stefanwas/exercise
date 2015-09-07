@@ -18,19 +18,23 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public String createUser(@RequestBody User user) {
+        String response = null;
         if (userValidator.isValidUser(user)) {
-
-            synchronized (userRepository) {
-                if (!userRepository.exists(user)) {
-                    userRepository.create(user);
-                    return "SUCCESS - user created.";
-                } else {
-                    return "FAILURE - user already exists.";
-                }
-            }
-
+            response = saveUser(user);
         } else {
-            return "FAILURE - invalid user data";
+            response = "FAILURE - invalid user data";
+        }
+        return response;
+    }
+
+    private String saveUser(User user) {
+        synchronized (this.userRepository) {
+            if (!userRepository.exists(user)) {
+                userRepository.save(user);
+                return "SUCCESS - user created.";
+            } else {
+                return "FAILURE - user already exists.";
+            }
         }
     }
 
