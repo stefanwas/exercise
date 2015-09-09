@@ -1,6 +1,10 @@
-1. konfiguracja ws-spring (1-2h) DONE
-2. repository (1-2h) DONE
-3. html page (15'-2h)
-4. validation (30') DONE
-5. tests 1h
-6. exception handling
+1. konfiguracja ws-spring (1-2h)    DONE
+2. repository (1-2h)                DONE
+3. html page (15'-2h)               DONE
+4. validation (30')                 DONE
+5. tests 1h                         DUPLICATE
+
+----
+6. exception handling (1h)                  ?
+7. simple spring config test (1h)           ?
+8. message format type change to xml?(2-4h) ?

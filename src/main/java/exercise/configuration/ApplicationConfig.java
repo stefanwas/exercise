@@ -8,21 +8,26 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+import org.springframework.web.servlet.view.xml.MarshallingView;
 
 import java.util.Arrays;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "exercise.*" })
+@ComponentScan(basePackages = { "exercise" })
 public class ApplicationConfig {
 
     @Bean
     public ContentNegotiatingViewResolver contentViewResolver() throws Exception {
-        MappingJackson2JsonView defaultView = new MappingJackson2JsonView();
-        defaultView.setExtractValueFromSingleKeyModel(true);
+        MappingJackson2JsonView jsonView = new MappingJackson2JsonView();
+        jsonView.setContentType("application/json");
+        jsonView.setExtractValueFromSingleKeyModel(true);
+
+        MarshallingView xmlView = new MarshallingView();
+        xmlView.setContentType("application/xml");
 
         ContentNegotiatingViewResolver contentViewResolver = new ContentNegotiatingViewResolver();
-        contentViewResolver.setDefaultViews(Arrays.<View>asList(defaultView));
+        contentViewResolver.setDefaultViews(Arrays.<View>asList(jsonView, xmlView));
         return contentViewResolver;
     }
 
