@@ -12,16 +12,21 @@ import org.springframework.web.servlet.view.xml.MarshallingView;
 
 import java.util.Arrays;
 
+
+/**
+ *
+ * @Configuration - plays the same role as xml file containing bean definitions.
+ */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "exercise" })
+@ComponentScan(basePackages = { "base" })
 public class ApplicationConfig {
 
     @Bean
     public ContentNegotiatingViewResolver contentViewResolver() throws Exception {
         MappingJackson2JsonView jsonView = new MappingJackson2JsonView();
         jsonView.setContentType("application/json");
-        jsonView.setExtractValueFromSingleKeyModel(true);
+//        jsonView.setExtractValueFromSingleKeyModel(true);
 
         MarshallingView xmlView = new MarshallingView();
         xmlView.setContentType("application/xml");

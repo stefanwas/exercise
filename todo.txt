@@ -17,3 +17,4 @@
 - add logging
 - add ws method discovery
 - add traffic monitoring tool
+- add application environment properties
