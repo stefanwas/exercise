@@ -1,8 +1,8 @@
-package exercise.controller;
+package base.controller;
 
-import exercise.repository.UserRepository;
-import exercise.model.User;
-import exercise.service.UserValidator;
+import base.repository.UserRepository;
+import base.model.User;
+import base.service.UserValidator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

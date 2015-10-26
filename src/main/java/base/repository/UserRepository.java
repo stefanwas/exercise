@@ -1,6 +1,6 @@
-package exercise.repository;
+package base.repository;
 
-import exercise.model.User;
+import base.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

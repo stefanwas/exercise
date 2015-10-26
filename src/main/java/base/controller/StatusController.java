@@ -1,6 +1,6 @@
-package exercise.controller;
+package base.controller;
 
-import exercise.model.Status;
+import base.model.Status;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

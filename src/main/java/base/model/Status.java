@@ -1,4 +1,4 @@
-package exercise.model;
+package base.model;
 
 public class Status {
     private String code;

@@ -1,6 +1,6 @@
-package exercise.service;
+package base.service;
 
-import exercise.model.User;
+import base.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -18,6 +18,8 @@ public class UserValidator {
     private final Predicate<String> hasNumber = Pattern.compile("\\d").asPredicate();
     private final Predicate<String> isAlphaNumeric = Pattern.compile("[a-zA-Z0-9]*").asPredicate();
 
+
+    //TODO return specific validation errors
     public boolean isValidUser(User user) {
         return hasValidName(user.getName()) && hasValidPassword(user.getPassword());
     }
