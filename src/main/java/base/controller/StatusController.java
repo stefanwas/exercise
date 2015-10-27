@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Quick test procedure:
  *
  * 1. mvn clean tomcat:run
- * 2. GET http://localhost:8080/exercise/rest/status
+ * 2. wget http://localhost:8080/exercise/rest/status
  */
 @RestController
 @RequestMapping("/status")
@@ -32,6 +32,7 @@ public class StatusController {
     public Status getXMLStatus() {
         return createStatus();
     }
+
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces = {"application/json"})
     public Status getJSONStatus() {
         return createStatus();
