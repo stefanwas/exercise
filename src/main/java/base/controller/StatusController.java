@@ -18,12 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/status")
 public class StatusController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String status() {
-        return "I'm alive!";
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String status() {
+//        return "I'm alive!";
+//    }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET, produces = {"application/xml", "application/json"})
+    /**
+     * This method returns Status in the format matching 'Accept' request header.
+     * Accept: application/xml -> will result in xml response
+     * Accept: application/json -> will result in json response
+     * no Accept param specified will return json response (default is the first type on the list)
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = {"application/xml", "application/json"})
     public Status getStatus() {
         return createStatus();
     }

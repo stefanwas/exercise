@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/*
+ * All annotations below must be present to make xml response working.
+ */
 @XmlRootElement(name = "status")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Status {

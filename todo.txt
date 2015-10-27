@@ -5,7 +5,7 @@
 - repository config + doc
 - hql & mongodb configs
 - simple index.html
--
+- web.xml
 - configuration tests
 - prepare and test jetty runner and external tomcat runner
 ----
