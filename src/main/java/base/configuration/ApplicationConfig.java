@@ -20,39 +20,44 @@ import javax.servlet.ServletContext;
 
 /**
  * @Configuration - this annotation indicates a class that plays the same role as xml file containing bean definitions.
+ *
+ * @EnableWebMvc - this annotation imports the Spring MVC configuration from
+ * {@link org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport}. To customize the imported configuration,
+ * implement the interface WebMvcConfigurer or more likely extend the empty method base class WebMvcConfigurerAdapter and override
+ * individual methods
  */
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "base" })
-public class ApplicationConfig {
+public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
     /*
      * In Spring MVC requested content type is determined in the following order:
      *
-     * 1. file extension like this:
+     * 1. file extension like this: (default on)
      * http://myserver/myapp/mydata/list.html -> will map into html content-type
      *
-     * 2. URL parameter like this:
+     * 2. URL parameter like this: (default off)
      * http://myserver/myapp/mydata/list?format=xls
      * The name of the parameter is format by default, but this may be changed.
      *
-     * 3. 'Accept' HTTP header
+     * 3. 'Accept' HTTP header like this: (default off)
      * Accept: application/json
+     *
+     * The order cannot be changed. Single steps can only be turned on and off.
      */
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+        configurer.favorPathExtension(false);
+        configurer.favorParameter(true);
+        configurer.ignoreAcceptHeader(true);
+        configurer.defaultContentType(MediaType.APPLICATION_JSON);
 
-    //dziala + extends WebMvcConfigurerAdapter
-    //https://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc
-//    @Override
-//    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-//        configurer.favorPathExtension(false).
-//            favorParameter(true).
-//            parameterName("mediaType").
-//            ignoreAcceptHeader(true).
-//            useJaf(false).
-//            defaultContentType(MediaType.APPLICATION_XML).
-//            mediaType("xml", MediaType.APPLICATION_XML).
-//            mediaType("json", MediaType.APPLICATION_JSON);
-//    }
+        // below properties has effect when used request param strategy
+        configurer.parameterName("mediaType");
+        configurer.mediaType("xml", MediaType.APPLICATION_XML);
+        configurer.mediaType("json", MediaType.APPLICATION_JSON);
+    }
 
 //    @Bean
 //    public ContentNegotiatingViewResolver contentViewResolver() throws Exception {
@@ -66,21 +71,5 @@ public class ApplicationConfig {
 //        contentViewResolver.setDefaultViews(Arrays.<View>asList(jsonView));
 //        return contentViewResolver;
 //    }
-
-
-    // nie dziala
-    @Bean
-    public ContentNegotiationConfigurer contentNegotiationConfigurer(ServletContext servletContext) throws Exception {
-        ContentNegotiationConfigurer configurer = new ContentNegotiationConfigurer(servletContext);
-
-        configurer.favorPathExtension(false);
-        configurer.favorParameter(true);
-        configurer.parameterName("mediaType").
-        ignoreAcceptHeader(true).
-            defaultContentType(MediaType.APPLICATION_JSON).
-            mediaType("xml", MediaType.APPLICATION_XML).
-            mediaType("json", MediaType.APPLICATION_JSON);
-        return configurer;
-    }
 
 }
