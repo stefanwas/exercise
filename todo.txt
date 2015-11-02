@@ -2,8 +2,9 @@
 - maven project structure                     DONE
 
 - spring config (annotations) + doc
+- spring boot / runner
 - repository config + doc
-- hql & mongodb configs
+- hql & mongodb configs (persistence)
 - simple index.html
 - web.xml
 - configuration tests
@@ -18,3 +19,5 @@
 - add ws method discovery
 - add traffic monitoring tool
 - add application environment properties
+----
+- bootstrap config (custom)

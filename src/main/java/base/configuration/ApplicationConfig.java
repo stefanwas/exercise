@@ -4,6 +4,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -11,10 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * @Configuration - this annotation indicates a class that plays the same role as xml file containing bean definitions.
  *
- * @EnableWebMvc - this annotation imports the Spring MVC configuration from
- * {@link org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport}. To customize the imported configuration,
- * implement the interface WebMvcConfigurer or more likely extend the empty method base class WebMvcConfigurerAdapter and override
- * individual methods
+ * @EnableWebMvc - this annotation imports the Spring MVC configuration from {@link WebMvcConfigurationSupport}.
+ * To customize the imported configuration, implement the interface {@link WebMvcConfigurer} or more likely extend the empty method
+ * of the base class {@link WebMvcConfigurerAdapter} and override individual methods.
  */
 @Configuration
 @EnableWebMvc
@@ -43,7 +44,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
         configurer.ignoreAcceptHeader(true);
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
 
-        // below properties has effect when used request param strategy
+        // below properties have effect when request param strategy used
         configurer.parameterName("mediaType");
         configurer.mediaType("xml", MediaType.APPLICATION_XML);
         configurer.mediaType("json", MediaType.APPLICATION_JSON);
