@@ -8,12 +8,12 @@
 - simple index.html
 - web.xml
 - configuration tests
-- prepare and test jetty runner and external tomcat runner
+- prepare and test embedded tomcat runner and external tomcat runner
 ----
 - validation (improve error messages)
 - application exception handling
 
-- dynamic message format json & xml req/res format (an elastic solution)
+- dynamic message format json & xml req/res format (an elastic solution) DONE
 
 - add logging
 - add ws method discovery

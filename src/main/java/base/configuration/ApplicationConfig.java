@@ -1,13 +1,20 @@
 package base.configuration;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+import org.springframework.web.servlet.view.xml.MarshallingView;
+
+import java.util.Arrays;
 
 
 /**
@@ -41,7 +48,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.favorPathExtension(false);
         configurer.favorParameter(true);
-        configurer.ignoreAcceptHeader(true);
+        configurer.ignoreAcceptHeader(false);
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
 
         // below properties have effect when request param strategy is used
@@ -55,8 +62,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
 //        MappingJackson2JsonView jsonView = new MappingJackson2JsonView();
 //        jsonView.setContentType("application/json");
 //
-////        MarshallingView xmlView = new MarshallingView();
-////        xmlView.setContentType("application/xml");
+//        MarshallingView xmlView = new MarshallingView();
+//        xmlView.setContentType("application/xml");
 //
 //        ContentNegotiatingViewResolver contentViewResolver = new ContentNegotiatingViewResolver();
 //        contentViewResolver.setDefaultViews(Arrays.<View>asList(jsonView));

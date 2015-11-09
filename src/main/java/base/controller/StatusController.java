@@ -29,7 +29,7 @@ public class StatusController {
      * Accept: application/json -> will result in json response
      * no Accept param specified will return json response (default is the first type on the list)
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = {"application/xml", "application/json"})
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = {"application/xml", "application/json"})
     public Status getStatus() {
         return createStatus();
     }

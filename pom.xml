@@ -55,12 +55,6 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>1.2.7.RELEASE</version>
-        </dependency>
-
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
@@ -105,4 +99,34 @@
 
 
     </dependencies>
+
+    <profiles>
+        <profile>
+            <!-- to run the application by maven use this profile: mvn tomcat:run -P tomcat -->
+            <id>tomcat</id>
+            <dependencies>
+                <!-- this dependency causes problems when application is started by maven (mvn tomcat:run) -->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <version>1.2.7.RELEASE</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>spring-boot</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <!-- this dependency causes problems when application is started by 'maven -->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <version>1.2.7.RELEASE</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>
