@@ -44,7 +44,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
         configurer.ignoreAcceptHeader(true);
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
 
-        // below properties have effect when request param strategy used
+        // below properties have effect when request param strategy is used
         configurer.parameterName("mediaType");
         configurer.mediaType("xml", MediaType.APPLICATION_XML);
         configurer.mediaType("json", MediaType.APPLICATION_JSON);
