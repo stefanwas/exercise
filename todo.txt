@@ -9,6 +9,8 @@
 - web.xml
 - configuration tests
 - prepare and test embedded tomcat runner and external tomcat runner
+- add filters
+- add spring data
 ----
 - validation (improve error messages)
 - application exception handling
