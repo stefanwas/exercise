@@ -1,25 +1,34 @@
+
+--------------- STARTUP -------------
 - name consistency                            DONE
 - maven project structure                     DONE
 
 - spring config (annotations) + doc
-- spring boot / runner
-- repository config + doc
-- hql & mongodb configs (persistence)
-- simple index.html
+- spring boot / runner (http://virtualjug.com/)
 - web.xml
-- configuration tests
 - prepare and test embedded tomcat runner and external tomcat runner
 - add filters
+- dynamic message format json & xml req/res format (an elastic solution) DONE
+--------------- DATA ---------------
+- repository config + doc
 - add spring data
-----
+- hql & mongodb configs (persistence)
+--------------- FRONTEND ---------------
+- simple index.html
+- bootstrap config (custom)
+
+--------------- TESTS -----------------
+- configuration tests
+
+
+--------------- EXTRA -----------------
 - validation (improve error messages)
 - application exception handling
 
-- dynamic message format json & xml req/res format (an elastic solution) DONE
+
 
 - add logging
 - add ws method discovery
 - add traffic monitoring tool
 - add application environment properties
 ----
-- bootstrap config (custom)

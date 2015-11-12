@@ -30,14 +30,16 @@
                 <!-- the newer plugin version 2.2 strangely falls into infinite loop -->
                 <version>2.1.1</version>
             </plugin>
+            <!-- usage mvn tomcat7:run -P tomcat -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>tomcat-maven-plugin</artifactId>
-                <version>1.1</version>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
                 <configuration>
                     <path>/exercise</path>
                 </configuration>
             </plugin>
+            <!-- not in use -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
