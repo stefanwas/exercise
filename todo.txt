@@ -4,11 +4,11 @@
 - maven project structure                     DONE
 
 - spring config (annotations) + doc
-- spring boot / runner (http://virtualjug.com/)
-- web.xml
-- prepare and test embedded tomcat runner and external tomcat runner
+- spring boot / runner (http://virtualjug.com/)                             IN PROGRESS
+- web.xml                                                                   DONE
+- prepare and test embedded tomcat runner and external tomcat runner        IN PROGRESS
 - add filters
-- dynamic message format json & xml req/res format (an elastic solution) DONE
+- dynamic message format json & xml req/res format (an elastic solution)    DONE
 --------------- DATA ---------------
 - repository config + doc
 - add spring data
