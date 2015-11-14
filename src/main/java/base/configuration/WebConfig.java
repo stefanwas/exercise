@@ -2,11 +2,7 @@ package base.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @Configuration - this annotation indicates a class that plays the same role as xml file containing bean definitions.
@@ -35,14 +31,19 @@ public class WebConfig extends WebMvcConfigurerAdapter {
    */
   @Override
   public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-    configurer.favorPathExtension(false);
-    configurer.favorParameter(true);
-    configurer.ignoreAcceptHeader(false);
-    configurer.defaultContentType(MediaType.APPLICATION_JSON);
+      configurer.favorPathExtension(false);
+      configurer.favorParameter(true);
+      configurer.ignoreAcceptHeader(false);
+      configurer.defaultContentType(MediaType.APPLICATION_JSON);
 
-    // below properties have effect when request param strategy is used
-    configurer.parameterName("mediaType");
-    configurer.mediaType("xml", MediaType.APPLICATION_XML);
-    configurer.mediaType("json", MediaType.APPLICATION_JSON);
+      // below properties have effect when request param strategy is used
+      configurer.parameterName("mediaType");
+      configurer.mediaType("xml", MediaType.APPLICATION_XML);
+      configurer.mediaType("json", MediaType.APPLICATION_JSON);
   }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("/");
+    }
 }

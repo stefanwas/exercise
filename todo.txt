@@ -24,7 +24,7 @@
 --------------- EXTRA -----------------
 - validation (improve error messages)
 - application exception handling
-
+- BasicErrorController
 
 
 - add logging

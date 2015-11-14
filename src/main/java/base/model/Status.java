@@ -5,15 +5,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/*
- * All annotations below must be present to make xml response working.
+/**
+ * If Jackson’s XML extension is not available on the classpath, JAXB (provided by default in the JDK) will be used,
+ * with the additional requirement to have the annotations below uncommented (to make xml response work).
  */
-@XmlRootElement(name = "status")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "status")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Status {
-    @XmlElement
+//    @XmlElement
     private String code;
-    @XmlElement
+//    @XmlElement
     private String message;
 
     public String getCode() {
