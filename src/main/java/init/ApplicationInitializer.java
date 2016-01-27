@@ -22,7 +22,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         ctx.scan("base");
         ctx.setServletContext(servletContext);
 
-        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(ctx));
         servlet.addMapping("/rest/*");
         servlet.setLoadOnStartup(1);
     }

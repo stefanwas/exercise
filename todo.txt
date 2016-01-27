@@ -27,7 +27,7 @@
 - BasicErrorController
 
 
-- add logging
+- add logging (logback)
 - add ws method discovery
 - add traffic monitoring tool
 - add application environment properties
